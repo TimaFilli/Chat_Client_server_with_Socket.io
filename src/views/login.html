@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <script>
-        const token = window.localStorage.getItem('token')
-        if(token) window.location = '/'
-    </script> -->
+    <script>
+        !(async function () {
+            let response = window.localStorage.getItem('response')
+            let token
+            if (response) {
+                response = await JSON.parse(response)
+                if (response.token) window.location = '/'
+                else token = response.token
+            }
+        })()
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

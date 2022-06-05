@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- <script>
-        const token = window.localStorage.getItem('token')
-        if(token) window.location = '/'
-    </script> -->
+    <script>
+        !(async function () {
+            let response = window.localStorage.getItem('response')
+            let token
+            if (response) {
+                response = await JSON.parse(response)
+                if (response.token) window.location = '/'
+                else token = response.token
+            }
+        })()
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/material-design-iconic-font.css">
     <link rel="stylesheet" href="./css/material-design-iconic-font.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="wrapper">
             <h1 class="title">Sign up</h1>
+            <h4 id="errorMessage" style="color: red;"></h4>
             <form action="#" class="site-form">
                 <label>
                     <span class="zmdi zmdi-account"></span>
@@ -44,4 +55,5 @@
     <script src="./js/request.js"></script>
     <script src="./js/registration.js"></script>
 </body>
+
 </html>

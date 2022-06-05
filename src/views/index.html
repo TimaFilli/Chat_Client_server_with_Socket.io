@@ -1,8 +1,16 @@
 <head>
-    <!-- <script>
-        const token = window.localStorage.getItem('token')
-        if(!token) window.location = '/login'
-    </script> -->
+    <script>
+        !(async function () {
+            let response = window.localStorage.getItem('response')
+            let token
+            if (!response) window.location = '/login'
+            else {
+                response = await JSON.parse(response)
+                if (!response.token) window.location = '/login'
+                else token = response.token
+            }
+        })()
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,10 +26,12 @@
         <div class="users-side">
             <div class="top-nav">
 
+
+
             </div>
             <ul id="chatsList" class="chats-list">
 
-                <li class="chats-item" onclick="(async function () {
+                <!-- <li class="chats-item" onclick="(async function () {
                     await setChat('/getFile/alisherjon.jpg/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IFVidW50dTsgTGludXggeDg2XzY0OyBydjoxMDAuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMDAuMCIsInVzZXJJZCI6NiwiaWF0IjoxNjU0MjU1MzY1LCJleHAiOjE2NjcyMTUzNjV9.r-GssZwmm4vtplwOe-JSbc8KarZv9dFWwiCaxJc2y7k', 'alisherjon', 3)
 
                     chatsMain.innerHTML = null
@@ -34,13 +44,14 @@
                         alisherjon
                         <span data-id="3" class=""></span>
                     </p>
-                </li>
+                </li> -->
 
             </ul>
         </div>
         <div class="chat-side">
             <div class="chat-header">
-                <h2 style="display: flex; align-items:center;">
+
+                <!-- <h2 style="display: flex; align-items:center;">
                     <img id="chatPhoto" style="margin-right: 10px; border-radius: 50%"
                         src="/getFile/ali.jpg/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IFVidW50dTsgTGludXggeDg2XzY0OyBydjoxMDAuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMDAuMCIsInVzZXJJZCI6NiwiaWF0IjoxNjU0MjU1MzY1LCJleHAiOjE2NjcyMTUzNjV9.r-GssZwmm4vtplwOe-JSbc8KarZv9dFWwiCaxJc2y7k"
                         width="50" height="50">
@@ -48,7 +59,8 @@
                         <span id="chatUsername">ali</span>
                         <span style="font-size: 12px; color: green; font-weight: bold;" id="chatAction"></span>
                     </span>
-                </h2>
+                </h2> -->
+
             </div>
             <div id="chatsMain" class="chat-main"></div>
             <form style="display: flex;" id="form" action="#" class="chat-footer">
@@ -77,10 +89,12 @@
         </div>
         <div class="profile-side">
             <div class="profile-body">
-                <img id="profileAvatar" class="profile-avatar"
+
+                <!-- <img id="profileAvatar" class="profile-avatar"
                     src="/getPhoto/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IFVidW50dTsgTGludXggeDg2XzY0OyBydjoxMDAuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMDAuMCIsInVzZXJJZCI6NiwiaWF0IjoxNjU0MjU1MzY1LCJleHAiOjE2NjcyMTUzNjV9.r-GssZwmm4vtplwOe-JSbc8KarZv9dFWwiCaxJc2y7k">
                 <p id="profileUsername" class="profile-name">TimaFilli</p>
-                <button id="logOut">log out</button>
+                <button id="logOut">log out</button> -->
+
             </div>
             <ul id="uploadedFiles" class="uploaded-file"></ul>
         </div>

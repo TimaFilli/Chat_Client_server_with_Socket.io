@@ -1,4 +1,5 @@
-const host = "http://localhost:3000"
+const API = "http://localhost:5000"
+
 async function request(path, method, body) {
     try {
         
@@ -11,10 +12,10 @@ async function request(path, method, body) {
             headers['Content-Type'] = 'application/json'
         }
 
-        let response = await fetch(host + path, {
+        let response = await fetch(API + path, {
             method: method || 'GET',
             headers,
-            body,
+            body
         })
 
         return await response.json()
