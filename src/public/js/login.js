@@ -1,14 +1,8 @@
-let token = window.localStorage.getItem('token')
-let data = window.localStorage.getItem('response')
-if (data) data = JSON.parse(data)
-else data = []
-if (data.token) window.location = '/'
-
-const usernameInput  = document.querySelector('#usernameInput'),
-    passwordInput    = document.querySelector('#passwordInput'),
+const usernameInput = document.querySelector('#usernameInput'),
+    passwordInput = document.querySelector('#passwordInput'),
     registrationForm = document.querySelector('.site-form'),
-    showButton       = document.querySelector('#showButton'),
-    title            = document.querySelector('.title')
+    showButton = document.querySelector('#showButton'),
+    title = document.querySelector('.title')
 
 registrationForm.onsubmit = async (event) => {
     event.preventDefault()
@@ -16,18 +10,19 @@ registrationForm.onsubmit = async (event) => {
         username: usernameInput.value,
         password: passwordInput.value
     })
-    if (response.token) {
-        title.textContent = response.message
-        window.localStorage.setItem('response', JSON.stringify(response))
-        setTimeout(() => {
-            window.location = '/'
-        }, 1500)
-    } else {
-        title.textContent = response.message
-    }
+
+    if (response.status == 400) return errorMessage.textContent = response.message
+
+    title.textContent = response.message
+    errorMessage.textContent = null
+
+    window.localStorage.setItem('response', JSON.stringify(response))
+    setTimeout(() => {
+        window.location = '/'
+    }, 1500)
 }
 
-showButton.onclick = () => {  
+showButton.onclick = () => {
     if (showButton.classList.contains('zmdi-eye')) {
         showButton.classList.remove('zmdi-eye')
         showButton.classList.add('zmdi-eye-off')
