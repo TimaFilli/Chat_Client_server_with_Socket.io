@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <script>
+        let token
         !(async function () {
             let response = window.localStorage.getItem('response')
-            let token
             if (response) {
                 response = await JSON.parse(response)
                 if (response.token) window.location = '/'
