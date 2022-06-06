@@ -14,6 +14,9 @@ uploadInput.addEventListener('change', () => {
 
 registrationForm.onsubmit = async (event) => {
     event.preventDefault()
+    
+    if(!uploadInput.files[0]) return errorMessage.textContent = "Upload avatar picture!"
+
     let formData = new FormData()
     formData.append('username', usernameInput.value)
     formData.append('password', passwordInput.value)

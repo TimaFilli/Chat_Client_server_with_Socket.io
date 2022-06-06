@@ -2,9 +2,11 @@ const API = "http://localhost:5000"
 
 async function request(path, method, body) {
     try {
-        
-        const headers = {
-            token: JSON.parse(window.localStorage.getItem('response')).token
+
+        let headers = {}
+
+        if (path != "/register" && path != "/login") {
+            headers.token = JSON.parse(window.localStorage.getItem('response')).token
         }
 
         if (!(body instanceof FormData)) {
