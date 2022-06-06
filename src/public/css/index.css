@@ -45,12 +45,21 @@ button:hover {
     height: 100vh;
     border-right: 1px solid #E6E6E6;
 }
+
 .top-nav {
     display: flex;
     align-items: center;
     padding: 15px 25px;
     border-bottom: 1px solid #E6E6E6;
 }
+
+#logOutBtn {
+    margin-top: 10px;
+    padding: 5px 10px; 
+    border-radius: 20%;    
+    background-color: rgb(224, 50, 50);
+}
+
 .top-nav h2 {
     font-weight: 500;
 }
@@ -77,6 +86,7 @@ button:hover {
     position: relative;
     border-right: 1px solid #e6e6e6;
 }
+
 .chat-header {
     display: flex;
     align-items: center;
@@ -84,6 +94,20 @@ button:hover {
     padding: 15px 25px;
     border-bottom: 1px solid #E6E6E6;
 }
+
+.chat-header #chatAction {
+    font-size: 12px;
+    color: green;
+    font-style: italic;
+}
+
+.chat-header img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
 .chat-header h2 {
     font-weight: 500;
 }
