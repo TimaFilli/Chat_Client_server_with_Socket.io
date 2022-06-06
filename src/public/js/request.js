@@ -4,7 +4,7 @@ async function request(path, method, body) {
     try {
         
         const headers = {
-            token: window.localStorage.getItem('token')
+            token: JSON.parse(window.localStorage.getItem('response')).token
         }
 
         if (!(body instanceof FormData)) {
@@ -21,6 +21,9 @@ async function request(path, method, body) {
         return await response.json()
 
     } catch (error) {
-        console.log(error)
+        return {
+            status: 400,
+            message: error.message
+        }
     }
 }
