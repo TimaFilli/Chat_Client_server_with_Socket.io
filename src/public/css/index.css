@@ -284,15 +284,12 @@ input[type="file"] {
     margin-right: 5px;
 }
 
-.online-indicator {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.online-user {
+    position: relative;
+    top: 14px;
     border-radius: 50%;
-    right: 15px;
-    bottom: 0;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
+    right: 11px;
+    width: 12px;
+    height: 12px;
     background-color: lime;
 }

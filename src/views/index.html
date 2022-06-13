@@ -2,8 +2,9 @@
     <script>
         let token
         let username
+        let response
         !(async function () {
-            let response = window.localStorage.getItem('response')
+            response = window.localStorage.getItem('response')
             if (!response) window.location = '/login'
             else {
                 response = await JSON.parse(response)
@@ -28,84 +29,30 @@
     <div class="container">
         <div class="users-side">
             <div class="top-nav">
-                                
+
                 <h2>Users</h2>
 
             </div>
+
             <ul id="chatsList" class="chats-list">
 
-                
-
-                <li class="chats-item">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <p>Akhrorbek</p>
-                </li>
-
-                <li class="chats-item">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <p>Doniyor</p>
-                </li>
-
-
             </ul>
+
         </div>
+
         <div class="chat-side">
             <div class="chat-header">
 
-                <img src="https://picsum.photos/100" alt="">
+                <img id="chatPhoto" src="" alt="">
+
                 <h3>
-                    <span id="chatUsername">Ahrorbek</span>
+                    <span id="chatUsername"></span>
                     <span id="chatAction">is typing...</span>
-                </h3> 
-            
+                </h3>
+
             </div>
             <div id="chatsMain" class="chat-main">
 
-
-
-                <div class="msg-wrapper ">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <div class="msg-text">
-                        <p class="msg-author">Akhrorbek</p>
-                        <p class="msg">Welcome our chat</p>
-                        <p class="time">19:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="msg-wrapper ">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <div class="msg-text">
-                        <p class="msg-author">Akhrorbek</p>
-                        <object data="https://picsum.photos/300" class="msg object-class"></object>
-                        <a href="/downloads?fileName=13341online.png">
-                            <img src="./img/download.png" width="25px">
-                        </a>
-                        <p class="time">19:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="msg-wrapper msg-from">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <div class="msg-text">
-                        <p class="msg-author">donishmand</p>
-                        <object data="https://picsum.photos/300" class="msg object-class"></object>
-                        <a href="/downloads?fileName=19176video_2022-02-13_21-45-32.mp4">
-                            <img src="./img/download.png" width="25px">
-                        </a>
-                        <p class="time">17:55 PM</p>
-                    </div>
-                </div>
-
-                <div class="msg-wrapper msg-from">
-                    <img src="https://picsum.photos/100" alt="profile-picture">
-                    <div class="msg-text">
-                        <p class="msg-author">donishmand</p>
-                        <p class="msg">sdfsdf</p>
-                        <p class="time">18:12 PM</p>
-                    </div>
-                </div>
-
-            
 
             </div>
             <form style="display: flex;" id="form" action="#" class="chat-footer">
@@ -135,29 +82,14 @@
         <div class="profile-side">
             <div class="profile-body">
 
-                <img src="https://picsum.photos/100" alt="profile-avatar" class="profile-avatar">
-                <p class="profile-name">Donishmand</p>
+                <img id="adminAvatar" src="" alt="" class="profile-avatar">
+                <p id="adminUsername" class="profile-name"></p>
+
                 <button id="logOutBtn">Log out</button>
 
             </div>
             <ul id="uploadedFiles" class="uploaded-file">
 
-
-                <li class="uploaded-file-item">
-                    <a href="/13341online.png">
-                        <img src="./img/file.png" alt="file" width="30px">
-                        <p>online.png</p>
-                    </a>
-                </li>
-
-                <li class="uploaded-file-item">
-                    <a href="/13341online.png">
-                        <img src="./img/file.png" alt="file" width="30px">
-                        <p>online.png</p>
-                    </a>
-                </li>
-
-            
             </ul>
         </div>
     </div>
